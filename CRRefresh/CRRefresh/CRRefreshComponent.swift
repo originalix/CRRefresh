@@ -112,10 +112,8 @@ open class CRRefreshComponent: UIView {
             ]
         }
     }
-}
-
-//MARK: Public Methods
-extension CRRefreshComponent {
+    
+    //Public Methods
     public final func beginRefreshing() -> Void {
         guard isRefreshing == false else { return }
         if self.window != nil {
@@ -159,6 +157,54 @@ extension CRRefreshComponent {
     public func sizeChange(change: [NSKeyValueChangeKey : Any]?) {}
     
     public func offsetChange(change: [NSKeyValueChangeKey : Any]?) {}
+    
+}
+
+//MARK: Public Methods
+extension CRRefreshComponent {
+//    public final func beginRefreshing() -> Void {
+//        guard isRefreshing == false else { return }
+//        if self.window != nil {
+//            state = .refreshing
+//            start()
+//        }else {
+//            if state != .refreshing {
+//                state = .willRefresh
+//                // 预防view还没显示出来就调用了beginRefreshing
+//                DispatchQueue.main.async {
+//                    self.scrollViewInsets = self.scrollView?.contentInset ?? .zero
+//                    if self.state == .willRefresh {
+//                        self.state = .refreshing
+//                        self.start()
+//                    }
+//                }
+//            }
+//        }
+//    }
+//
+//    public final func endRefreshing() -> Void {
+//        guard isRefreshing else { return }
+//        self.stop()
+//    }
+//
+//    public func ignoreObserver(_ ignore: Bool = false) {
+//        if let scrollView = scrollView {
+//            scrollView.isScrollEnabled = !ignore
+//        }
+//        isIgnoreObserving = ignore
+//    }
+//
+//    public func start() {
+//        isRefreshing = true
+//    }
+//
+//    public func stop() {
+//        isRefreshing = false
+//    }
+//
+//    public func sizeChange(change: [NSKeyValueChangeKey : Any]?) {}
+//
+//    public func offsetChange(change: [NSKeyValueChangeKey : Any]?) {}
 }
 
 //MARK: Observer Methods 
